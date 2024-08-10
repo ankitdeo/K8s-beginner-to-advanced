@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mongodb-deployment
+  namespace: my-namespace
   labels:
     app: mongodb
 spec:
@@ -11,6 +12,7 @@ spec:
       app: mongodb
   template:
     metadata:
+      namespace: my-namespace
       labels:
         app: mongodb
     spec:
@@ -43,6 +45,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mongodb-service
+  namespace: my-namespace
 spec:
   selector:
     app: mongodb
